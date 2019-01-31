@@ -1,5 +1,6 @@
 package com.example.admin.daggervskoin
 
+import com.example.admin.daggervskoin.dagger.example1.War
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -12,6 +13,7 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        val war = War()
+        war.war()
     }
 }
