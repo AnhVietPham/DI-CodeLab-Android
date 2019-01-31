@@ -1,9 +1,9 @@
 package com.example.admin.daggervskoin
 
-import com.example.admin.daggervskoin.dagger.example1.War
+import com.example.admin.daggervskoin.dagger.example2.Boltons
+import com.example.admin.daggervskoin.dagger.example2.Starks
+import com.example.admin.daggervskoin.dagger.example2.War
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -13,7 +13,10 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        val war = War()
-        war.war()
+        val starks = Starks()
+        val boltons = Boltons()
+        val war = War(starks = starks, boltons = boltons)
+        war.prepar()
+        war.report()
     }
 }
