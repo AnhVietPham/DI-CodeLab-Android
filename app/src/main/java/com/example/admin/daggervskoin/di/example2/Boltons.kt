@@ -1,4 +1,4 @@
-package com.example.admin.daggervskoin.dagger.example2
+package com.example.admin.daggervskoin.di.example2
 
 class Boltons : House {
     override fun prepareForWar() {

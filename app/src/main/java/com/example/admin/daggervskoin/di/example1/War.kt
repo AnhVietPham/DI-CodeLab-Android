@@ -1,4 +1,4 @@
-package com.example.admin.daggervskoin.dagger.example1
+package com.example.admin.daggervskoin.di.example1
 
 /*
 * Example 1: Scenario 1 without dependency injection

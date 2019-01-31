@@ -1,11 +1,14 @@
-package com.example.admin.daggervskoin.dagger.example2
+package com.example.admin.daggervskoin.di.example1
 
-class Starks : House {
+class Boltons : House{
     override fun prepareForWar() {
         System.out.println(this.javaClass.simpleName + " prepare for War")
+
     }
 
     override fun reportForWar() {
         System.out.println(this.javaClass.simpleName + " report for War")
+
     }
+
 }
