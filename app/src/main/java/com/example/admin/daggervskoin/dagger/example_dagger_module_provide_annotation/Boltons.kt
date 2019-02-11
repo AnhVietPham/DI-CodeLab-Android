@@ -1,6 +1,5 @@
-package com.example.admin.daggervskoin.dagger
+package com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation
 
-import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.House
 import javax.inject.Inject
 
 class Boltons @Inject constructor() : House {

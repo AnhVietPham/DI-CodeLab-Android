@@ -1,6 +1,9 @@
 package com.example.admin.daggervskoin
 
-import com.example.admin.daggervskoin.dagger.DaggerBattleComponent
+import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.BraavosModule
+import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.Cash
+import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.DaggerBattleComponent
+import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.Soliders
 import org.junit.Test
 
 
@@ -18,9 +21,18 @@ class ExampleUnitTest {
 //        war.prepar()
 //        war.report()
 
-        val component = DaggerBattleComponent.create()
+        val cash = Cash()
+        val soliders = Soliders()
+
+        val component = DaggerBattleComponent.builder().braavosModule(BraavosModule(
+            cash = cash,
+            soliders = soliders
+        )).build()
         val war = component.getWar()
         war.prepare()
         war.report()
+
+        component.getCash()
+        component.getSoliders()
     }
 }
