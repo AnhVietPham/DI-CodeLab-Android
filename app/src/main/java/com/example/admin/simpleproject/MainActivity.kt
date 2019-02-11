@@ -1,7 +1,8 @@
-package com.example.admin.daggervskoin
+package com.example.admin.simpleproject
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.admin.daggervskoin.R
 
 class MainActivity : AppCompatActivity() {
 
