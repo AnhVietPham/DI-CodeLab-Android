@@ -14,15 +14,21 @@ import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.converter.gson.GsonConverterFactory
 import com.example.admin.simpleproject.interfaces.RandomUsersApi
+import com.jakewharton.picasso.OkHttp3Downloader
+import okhttp3.Cache
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
+import com.squareup.picasso.Picasso
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var retrofit: Retrofit
     private lateinit var recyclerView: RecyclerView
     private lateinit var mAdapter: UserAdapter
-
+    private lateinit var picasso: Picasso
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
@@ -32,6 +38,11 @@ class MainActivity : AppCompatActivity() {
         val gson = gsonBuilder.create()
 
         Timber.plant(Timber.DebugTree())
+
+        val cacheFile = File(this.cacheDir, "HttpCache")
+        cacheFile.mkdirs()
+
+        val cache = Cache(cacheFile, 10 * 1000 * 1000) //10 MB
 
         val httpLoggingInterceptor =
             HttpLoggingInterceptor(HttpLoggingInterceptor.Logger { message ->
@@ -43,6 +54,10 @@ class MainActivity : AppCompatActivity() {
             .newBuilder()
             .addInterceptor(httpLoggingInterceptor)
             .build()
+
+        val okHttpDownloader = OkHttp3Downloader(okHttpClient)
+
+        picasso = Picasso.Builder(this).downloader(okHttpDownloader).build()
 
         retrofit = Retrofit.Builder()
             .client(okHttpClient)
