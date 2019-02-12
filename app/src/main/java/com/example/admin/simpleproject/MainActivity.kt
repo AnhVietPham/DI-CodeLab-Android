@@ -1,28 +1,26 @@
 package com.example.admin.simpleproject
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.example.admin.daggervskoin.R.layout.activity_main
 import com.example.admin.simpleproject.adapter.UserAdapter
-import retrofit2.Retrofit
-import com.example.admin.simpleproject.model.User
-import timber.log.Timber
-import com.google.gson.GsonBuilder
-import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.OkHttpClient
-import retrofit2.converter.gson.GsonConverterFactory
 import com.example.admin.simpleproject.interfaces.RandomUsersApi
+import com.example.admin.simpleproject.model.User
+import com.google.gson.GsonBuilder
 import com.jakewharton.picasso.OkHttp3Downloader
+import com.squareup.picasso.Picasso
 import okhttp3.Cache
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 import java.io.File
-import com.squareup.picasso.Picasso
-
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var retrofit: Retrofit

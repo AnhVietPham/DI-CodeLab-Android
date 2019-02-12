@@ -8,7 +8,7 @@ data class Location(
     @SerializedName("coordinates")
     val coordinates: Coordinates?,
     @SerializedName("postcode")
-    val postcode: Int?,
+    val postcode: String?,
     @SerializedName("state")
     val state: String?,
     @SerializedName("street")
