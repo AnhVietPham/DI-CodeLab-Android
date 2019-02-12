@@ -22,6 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 import java.io.File
 
+// Simple project created 02/12/2019
 class MainActivity : AppCompatActivity() {
     private lateinit var retrofit: Retrofit
     private lateinit var recyclerView: RecyclerView
