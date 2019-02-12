@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var mAdapter: UserAdapter
     private lateinit var picasso: Picasso
+    private lateinit var randomUsersApi: RandomUsersApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         val okHttpClient = OkHttpClient()
             .newBuilder()
+            .cache(cache)
             .addInterceptor(httpLoggingInterceptor)
             .build()
 
