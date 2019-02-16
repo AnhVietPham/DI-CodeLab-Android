@@ -1,17 +1,19 @@
 package com.example.admin.simpleproject.adapter
 
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.admin.daggervskoin.R
+import com.example.admin.simpleproject.MainActivity
 import com.example.admin.simpleproject.model.Result
 import com.squareup.picasso.Picasso
 
 
-class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter(private val mainActivity: MainActivity,
+                  private val picasso: Picasso) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     private val mResult = mutableListOf<Result>()
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val view = LayoutInflater.from(p0.context).inflate(
@@ -36,7 +38,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
             "%s %s", result.name?.first,
             result.name?.last
         )
-        Picasso.with(p0.iv.context)
+        Picasso.with(mainActivity)
             .load(result.picture?.large)
             .into(p0.iv)
     }

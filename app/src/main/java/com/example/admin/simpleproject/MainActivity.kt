@@ -5,8 +5,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.example.admin.daggervskoin.R.layout.activity_main
+import com.example.admin.simpleproject.Application.UserApplication
 import com.example.admin.simpleproject.adapter.UserAdapter
 import com.example.admin.simpleproject.component.DaggerUserComponent
+import com.example.admin.simpleproject.features.DaggerMainActivityComponent
+import com.example.admin.simpleproject.features.MainActivityModule
 import com.example.admin.simpleproject.interfaces.RandomUsersApi
 import com.example.admin.simpleproject.model.User
 import com.example.admin.simpleproject.module.ContextModule
@@ -38,10 +41,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(activity_main)
         initViews()
         //beforeDagger2()
-        afterDagger2()
+        //afterDagger2()
+        afterActivityLevelComponent()
         populateUsers()
     }
 
+    private fun afterActivityLevelComponent(){
+        val mainActivityComponent = DaggerMainActivityComponent.builder()
+            .mainActivityModule(MainActivityModule(this))
+            .userComponent(UserApplication.get(this).getUserApplicationComponent())
+            .build()
+        randomUsersApi = mainActivityComponent.getUserService()
+        mAdapter = mainActivityComponent.getUserAdapter()
+    }
     private fun afterDagger2() {
         val daggerUserComponent = DaggerUserComponent.builder()
             .contextModule(ContextModule(this))
@@ -93,7 +105,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
-                    mAdapter = UserAdapter()
                     response.body()?.let { user ->
                         mAdapter.setItems(user.results)
                     }
