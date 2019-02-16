@@ -1,5 +1,6 @@
 package com.example.admin.simpleproject.module
 
+import com.example.admin.simpleproject.interfaces.RandomUserApplicationScope
 import com.example.admin.simpleproject.interfaces.RandomUsersApi
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -18,6 +19,7 @@ class UserModule {
         return retrofit.create(RandomUsersApi::class.java)
     }
 
+    @RandomUserApplicationScope
     @Provides
     fun retrofit(
         okHttpClient : OkHttpClient,
