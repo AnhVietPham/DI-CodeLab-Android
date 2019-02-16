@@ -1,6 +1,7 @@
 package com.example.admin.simpleproject.module
 
 import android.content.Context
+import com.example.admin.simpleproject.interfaces.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -8,7 +9,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import timber.log.Timber
 import java.io.File
-import javax.inject.Named
 
 
 @Module(includes = [ContextModule::class])
@@ -28,7 +28,7 @@ class OkHttpClientModule {
     }
 
     @Provides
-    fun file(@Named("application_context") context: Context): File {
+    fun file(/*@Named("application_context")*/@ApplicationContext context: Context): File {
         val file = File(context.cacheDir, "HttpCache")
         file.mkdirs()
         return file
