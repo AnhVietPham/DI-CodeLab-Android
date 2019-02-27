@@ -1,6 +1,4 @@
-package com.example.admin.daggervskoin.dagger
-
-import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.House
+package com.example.admin.daggervskoin.koin
 
 class Starks : House {
     override fun prepareForWar() {
@@ -10,5 +8,4 @@ class Starks : House {
     override fun reportForWar() {
         System.out.println(this.javaClass.simpleName + " report for War Using Dagger")
     }
-
 }

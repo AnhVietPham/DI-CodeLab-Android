@@ -1,10 +1,9 @@
 package com.example.admin.daggervskoin
 
-import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.BraavosModule
-import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.Cash
-import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.DaggerBattleComponent
-import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.Soliders
+import com.example.admin.daggervskoin.koin.*
 import org.junit.Test
+import org.koin.dsl.module.module
+import org.koin.standalone.StandAloneContext.startKoin
 
 
 /**
@@ -15,24 +14,49 @@ import org.junit.Test
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
+        // Dagger 2
 //        val starks = Starks()
 //        val boltons = Boltons()
 //        val war = War(starks = starks, boltons = boltons)
 //        war.prepar()
 //        war.report()
 
-        val cash = Cash()
-        val soliders = Soliders()
+//        val cash = Cash()
+//        val soliders = Soliders()
+//
+//        val component = DaggerBattleComponent.builder().braavosModule(BraavosModule(
+//            cash = cash,
+//            soliders = soliders
+//        )).build()
+//        val war = component.getWar()
+//        war.prepare()
+//        war.report()
+//
+//        component.getCash()
+//        component.getSoliders()
+//
+//        val component = DaggerBattleComponent.create()
+//        val war = component.getWar()
+//        war.prepare()
+//        war.report()
+        // Koin
+        val module = module {
+            single {
+                Boltons()
+            }
 
-        val component = DaggerBattleComponent.builder().braavosModule(BraavosModule(
-            cash = cash,
-            soliders = soliders
-        )).build()
-        val war = component.getWar()
-        war.prepare()
-        war.report()
+            single {
+                Starks()
+            }
 
-        component.getCash()
-        component.getSoliders()
+            single {
+                WarImpl(boltons = get(),
+                    starks = get()) as War
+            }
+        }
+        startKoin(listOf(module))
+        BattleComponentKoin().requestWar()
     }
+
+
 }
