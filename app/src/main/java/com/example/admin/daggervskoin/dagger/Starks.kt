@@ -1,8 +1,9 @@
 package com.example.admin.daggervskoin.dagger
 
 import com.example.admin.daggervskoin.dagger.example_dagger_module_provide_annotation.House
+import javax.inject.Inject
 
-class Starks : House {
+class Starks @Inject constructor(): House {
     override fun prepareForWar() {
         System.out.println(this.javaClass.simpleName + " prepare for War Using Dagger")
     }

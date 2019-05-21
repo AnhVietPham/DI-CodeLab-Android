@@ -1,9 +1,8 @@
 package com.example.admin.daggervskoin
 
-import com.example.admin.daggervskoin.koin.*
+
+import com.example.admin.daggervskoin.dagger.DaggerBattleComponent
 import org.junit.Test
-import org.koin.dsl.module.module
-import org.koin.standalone.StandAloneContext.startKoin
 
 
 /**
@@ -18,44 +17,46 @@ class ExampleUnitTest {
 //        val starks = Starks()
 //        val boltons = Boltons()
 //        val war = War(starks = starks, boltons = boltons)
-//        war.prepar()
+//        war.prepare()
 //        war.report()
 
 //        val cash = Cash()
 //        val soliders = Soliders()
 //
-//        val component = DaggerBattleComponent.builder().braavosModule(BraavosModule(
-//            cash = cash,
-//            soliders = soliders
-//        )).build()
+//        val component = DaggerBattleComponent.builder().braavosModule(BraavosModule()).build()
 //        val war = component.getWar()
 //        war.prepare()
 //        war.report()
+//        val cash = component.getCash()
+//        cash.useOfflineMoney()
+//        cash.useOnlineMoney()
+//        val solider = component.getSoliders()
+//        solider.useWeapon()
 //
 //        component.getCash()
 //        component.getSoliders()
 //
-//        val component = DaggerBattleComponent.create()
-//        val war = component.getWar()
-//        war.prepare()
-//        war.report()
+        val component = DaggerBattleComponent.create()
+        val war = component.getWar()
+        war.prepare()
+        war.report()
         // Koin
-        val module = module {
-            single {
-                Boltons()
-            }
-
-            single {
-                Starks()
-            }
-
-            single {
-                WarImpl(boltons = get(),
-                    starks = get()) as War
-            }
-        }
-        startKoin(listOf(module))
-        BattleComponentKoin().requestWar()
+//        val module = module {
+//            single {
+//                Boltons()
+//            }
+//
+//            single {
+//                Starks()
+//            }
+//
+//            single {
+//                WarImpl(boltons = get(),
+//                    starks = get()) as War
+//            }
+//        }
+//        startKoin(listOf(module))
+//        BattleComponentKoin().requestWar()
     }
 
 

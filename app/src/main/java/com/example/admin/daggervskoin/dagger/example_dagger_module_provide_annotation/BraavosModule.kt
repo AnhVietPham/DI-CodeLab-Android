@@ -4,18 +4,14 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class BraavosModule(
-    private val cash: Cash,
-    private val soliders: Soliders
-)
-{
+class BraavosModule {
     @Provides
-    fun provideCash(): Cash {
-        return cash
+    fun provideCash(offlineBank: OfflineBank, onlineBank: OnlineBank): Cash {
+        return Cash(offlineBank = offlineBank, onlineBank = onlineBank)
     }
 
     @Provides
-    fun provideSoliders(): Soliders {
-        return soliders
+    fun provideSoliders(armory: Armory): Soliders {
+        return Soliders(armory = armory)
     }
 }
