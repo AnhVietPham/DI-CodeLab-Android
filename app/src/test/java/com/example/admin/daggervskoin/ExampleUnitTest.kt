@@ -1,5 +1,6 @@
 package com.example.admin.daggervskoin
 
+import com.example.admin.daggervskoin.dagger.DaggerBattleComponent
 import com.example.admin.daggervskoin.koin.*
 import org.junit.Test
 import org.koin.dsl.module.module
@@ -35,27 +36,27 @@ class ExampleUnitTest {
 //        component.getCash()
 //        component.getSoliders()
 //
-//        val component = DaggerBattleComponent.create()
-//        val war = component.getWar()
-//        war.prepare()
-//        war.report()
+        val component = DaggerBattleComponent.create()
+        val war = component.getWar()
+        war.prepare()
+        war.report()
         // Koin
-        val module = module {
-            single {
-                Boltons()
-            }
-
-            single {
-                Starks()
-            }
-
-            single {
-                WarImpl(boltons = get(),
-                    starks = get()) as War
-            }
-        }
-        startKoin(listOf(module))
-        BattleComponentKoin().requestWar()
+//        val module = module {
+//            single {
+//                Boltons()
+//            }
+//
+//            single {
+//                Starks()
+//            }
+//
+//            single {
+//                WarImpl(boltons = get(),
+//                    starks = get()) as War
+//            }
+//        }
+//        startKoin(listOf(module))
+//        BattleComponentKoin().requestWar()
     }
 
 
