@@ -15,7 +15,13 @@ class AppContainer {
     private val remoteDataSource = UserRemoteDataSource(retrofit)
     private val localDataSource = UserLocalDataSource()
 
-    val userRepository = UserRepository(localDataSource, remoteDataSource)
+    private val userRepository = UserRepository(localDataSource, remoteDataSource)
 
-    val loginViewModelFactory = LoginViewModelFactory(userRepository)
+    /**
+     * Persist data from an old login flow from a different user
+     * */
+//    val loginViewModelFactory = LoginViewModelFactory(userRepository)
+
+    val loginContainer: LoginContainer? = null
+
 }

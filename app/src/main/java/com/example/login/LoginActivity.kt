@@ -3,16 +3,20 @@ package com.example.login
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.admin.daggervskoin.R
-import com.example.login.manualdi.LoginViewModel
+import com.example.login.dagger.LoginViewModelDagger
+import javax.inject.Inject
 
 /**
  * Document : https://developer.android.com/training/dependency-injection/manual#kotlin
  * */
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var loginViewModel: LoginViewModel
+//    private lateinit var loginViewModel: LoginViewModel
+
+    @Inject lateinit var loginViewModelDagger: LoginViewModelDagger
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (applicationContext as MainApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -39,7 +43,9 @@ class LoginActivity : AppCompatActivity() {
         /**
          * This is using Factory ViewModel
          * */
-        val appContainer = (application as MainApplication).appContainer
-        loginViewModel = appContainer.loginViewModelFactory.create()
+//        loginViewModel = appContainer.loginViewModelFactory.create()
+//        val appContainer = (application as MainApplication).appContainer
+//        loginViewModel = appContainer.loginContainer?.loginViewModelFactory
+
     }
 }
