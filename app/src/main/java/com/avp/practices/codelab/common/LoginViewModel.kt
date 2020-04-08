@@ -1,4 +1,4 @@
-package com.avp.practices.codelab.manualdi
+package com.avp.practices.codelab.common
 
 import android.arch.lifecycle.ViewModel
 

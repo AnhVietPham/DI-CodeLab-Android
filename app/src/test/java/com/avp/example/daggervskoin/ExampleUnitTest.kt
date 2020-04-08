@@ -1,6 +1,8 @@
 package com.avp.example.daggervskoin
 
 import com.avp.example.daggervskoin.dagger.DaggerBattleComponent
+import com.avp.practices.codelab.basicdagger.ApplicationGraphComponent
+import com.avp.practices.codelab.basicdagger.DaggerApplicationGraphComponent
 import org.junit.Test
 
 
@@ -54,6 +56,15 @@ class ExampleUnitTest {
 //        }
 //        startKoin(listOf(module))
 //        BattleComponentKoin().requestWar()
+    }
+
+    @Test
+    fun assert_unique_instance_dagger_component(){
+        val applicationGraphComponent : ApplicationGraphComponent = DaggerApplicationGraphComponent.create()
+
+        val productRepository1 = applicationGraphComponent.productRepository()
+        val productRepository2 = applicationGraphComponent.productRepository()
+        assert(productRepository1 != productRepository2)
     }
 
 

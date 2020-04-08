@@ -3,7 +3,7 @@ package com.avp.practices.codelab.containerdependencies
 import com.avp.practices.codelab.common.LoginService
 import com.avp.practices.codelab.common.UserLocalDataSource
 import com.avp.practices.codelab.common.UserRemoteDataSource
-import com.avp.practices.codelab.manualdi.UserRepository
+import com.avp.practices.codelab.common.UserRepository
 import retrofit2.Retrofit
 
 class AppContainer {
@@ -15,7 +15,10 @@ class AppContainer {
     private val remoteDataSource = UserRemoteDataSource(retrofit)
     private val localDataSource = UserLocalDataSource()
 
-    private val userRepository = UserRepository(localDataSource, remoteDataSource)
+    private val userRepository = UserRepository(
+        localDataSource,
+        remoteDataSource
+    )
 
     /**
      * Persist data from an old login flow from a different user
