@@ -1,4 +1,4 @@
-package com.avp.practices.codelab.basicdagger
+package com.avp.practices.codelab.basicdagger.unique_instance
 
 import dagger.Component
 

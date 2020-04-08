@@ -1,8 +1,9 @@
 package com.avp.example.daggervskoin
 
 import com.avp.example.daggervskoin.dagger.DaggerBattleComponent
-import com.avp.practices.codelab.basicdagger.ApplicationGraphComponent
 import com.avp.practices.codelab.basicdagger.DaggerApplicationGraphComponent
+import com.avp.practices.codelab.basicdagger.DaggerApplicationGraphProductScopeComponent
+import com.avp.practices.codelab.basicdagger.unique_instance.ApplicationGraphComponent
 import org.junit.Test
 
 
@@ -67,5 +68,14 @@ class ExampleUnitTest {
         assert(productRepository1 != productRepository2)
     }
 
+    @Test
+    fun assert_the_same_instance_dagger_scope_component(){
+        val applicationGraphProductScopeComponent = DaggerApplicationGraphProductScopeComponent.create()
+
+        val productRepository1 = applicationGraphProductScopeComponent.productRepository()
+        val productRepository2 = applicationGraphProductScopeComponent.productRepository()
+
+        assert(productRepository1 == productRepository2)
+    }
 
 }
