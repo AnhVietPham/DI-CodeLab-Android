@@ -3,7 +3,7 @@ package com.avp.practices.codelab
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.avp.example.daggervskoin.R
-import com.avp.practices.codelab.dagger.LoginViewModelDagger
+import com.avp.practices.codelab.dagger_in_android_app.LoginViewModelDagger
 import javax.inject.Inject
 
 /**

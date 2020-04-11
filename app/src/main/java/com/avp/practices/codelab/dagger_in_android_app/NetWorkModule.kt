@@ -1,4 +1,4 @@
-package com.avp.practices.codelab.dagger
+package com.avp.practices.codelab.dagger_in_android_app
 
 import com.avp.practices.codelab.common.LoginService
 import dagger.Module
@@ -8,7 +8,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Module
-class NetWorkModule(val baseUrl: String) {
+class NetWorkModule(private val baseUrl: String) {
 
     @Singleton
     @Provides

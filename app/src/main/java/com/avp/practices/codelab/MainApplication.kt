@@ -1,9 +1,9 @@
 package com.avp.practices.codelab
 
 import android.app.Application
-import com.avp.practices.codelab.dagger.ApplicationComponent
-import com.avp.practices.codelab.dagger.DaggerApplicationComponent
-import com.avp.practices.codelab.dagger.NetWorkModule
+import com.avp.practices.codelab.dagger_in_android_app.ApplicationComponent
+import com.avp.practices.codelab.dagger_in_android_app.DaggerApplicationComponent
+import com.avp.practices.codelab.dagger_in_android_app.NetWorkModule
 
 class MainApplication : Application(){
     /**
