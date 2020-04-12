@@ -1,22 +1,23 @@
 package com.avp.practices.codelab
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.avp.example.daggervskoin.R
 import com.avp.practices.codelab.dagger_in_android_app.LoginViewModelDagger
+import com.avp.practices.codelab.dagger_in_android_app.component.LoginComponent
 import javax.inject.Inject
 
-/**
- * Document : https://developer.android.com/training/dependency-injection/manual#kotlin
- * */
 class LoginActivity : AppCompatActivity() {
 
-//    private lateinit var loginViewModel: LoginViewModel
+    lateinit var loginComponent: LoginComponent
 
-    @Inject lateinit var loginViewModelDagger: LoginViewModelDagger
+    @Inject
+    lateinit var loginViewModel: LoginViewModelDagger
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (applicationContext as MainApplication).appComponent.inject(this)
+        loginComponent = (applicationContext as MainApplication)
+            .appComponent.loginComponent().create()
+        loginComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 

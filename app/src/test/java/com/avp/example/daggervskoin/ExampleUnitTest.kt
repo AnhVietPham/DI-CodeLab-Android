@@ -1,9 +1,9 @@
 package com.avp.example.daggervskoin
 
 import com.avp.example.daggervskoin.dagger.DaggerBattleComponent
-import com.avp.practices.codelab.basicdagger.DaggerApplicationGraphComponent
-import com.avp.practices.codelab.basicdagger.DaggerApplicationGraphProductScopeComponent
+import com.avp.practices.codelab.basicdagger.same_instance.DaggerApplicationGraphProductScopeComponent
 import com.avp.practices.codelab.basicdagger.unique_instance.ApplicationGraphComponent
+import com.avp.practices.codelab.basicdagger.unique_instance.DaggerApplicationGraphComponent
 import org.junit.Test
 
 

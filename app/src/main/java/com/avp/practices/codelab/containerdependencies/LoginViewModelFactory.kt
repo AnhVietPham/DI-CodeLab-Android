@@ -1,6 +1,6 @@
 package com.avp.practices.codelab.containerdependencies
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.avp.practices.codelab.common.LoginViewModel
 import com.avp.practices.codelab.common.UserRepository
 

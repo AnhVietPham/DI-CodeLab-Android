@@ -2,6 +2,7 @@ package com.avp.practices.codelab.dagger_in_android_app
 
 import javax.inject.Inject
 
+@ActivityScope
 class LoginViewModelDagger @Inject constructor(
-    private val userRepositoryDagger: UserRepositoryDagger
+     val userRepositoryDagger: UserRepositoryDagger
 )

@@ -1,6 +1,6 @@
 package com.avp.practices.codelab.common
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 
 class LoginViewModel(
     private val userRepository: UserRepository
