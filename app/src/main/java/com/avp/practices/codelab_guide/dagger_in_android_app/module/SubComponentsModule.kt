@@ -4,5 +4,4 @@ import com.avp.practices.codelab_guide.dagger_in_android_app.component.LoginComp
 import dagger.Module
 
 @Module(subcomponents = [LoginComponent::class])
-class SubComponentsModule {
-}
+class SubComponentsModule

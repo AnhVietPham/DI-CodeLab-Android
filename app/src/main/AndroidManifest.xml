@@ -10,13 +10,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.avp.practices.codelab_guide.LoginActivity">
+        <activity android:name="com.avp.practices.codelab_guide.dagger_in_multi_module_android_app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.avp.mymoduleone.FeatureOneActivity"/>
+        <activity android:name="com.avp.mymoduletwo.FeatureTwoActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.avp.example.daggervskoin
 
 import com.avp.example.daggervskoin.dagger.DaggerBattleComponent
+import com.avp.modulecore.components.DaggerCoreComponent
 import com.avp.practices.codelab_guide.basicdagger.same_instance.DaggerApplicationGraphProductScopeComponent
 import com.avp.practices.codelab_guide.basicdagger.unique_instance.ApplicationGraphComponent
 import com.avp.practices.codelab_guide.basicdagger.unique_instance.DaggerApplicationGraphComponent
@@ -76,6 +77,16 @@ class ExampleUnitTest {
         val productRepository2 = applicationGraphProductScopeComponent.productRepository()
 
         assert(productRepository1 == productRepository2)
+    }
+
+    @Test
+    fun assert_the_same_Remote_API_Service(){
+        val coreComponent = DaggerCoreComponent.create()
+
+        val remoteAPIService1 = coreComponent.getRemoteApiService()
+        val remoteAPIService2 = coreComponent.getRemoteApiService()
+
+        assert(remoteAPIService1 == remoteAPIService2)
     }
 
 }

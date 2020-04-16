@@ -1,1 +1,4 @@
 include ':app'
+include ':modulecore'
+include ':mymoduleone'
+include ':mymoduletwo'
